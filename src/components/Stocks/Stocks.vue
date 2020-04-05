@@ -1,0 +1,27 @@
+<template>
+    <div class="stock-container">
+        <app-stock v-for="stock in stocks" :key="stock" :stock="stock"></app-stock>
+    </div>
+</template>
+
+<script>
+    import Stock from './Stock'
+    export default {
+        components: {
+            appStock: Stock
+        },
+        computed: {
+            stocks() {
+                return this.$store.getters.stocks
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .stock-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+</style>
